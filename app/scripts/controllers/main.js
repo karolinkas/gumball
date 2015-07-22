@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('gumballApp')
-  .controller('MainCtrl', [ 'loadData', function (loadData) {
+  .controller('MainCtrl', [ 'loadData', '$http', function (loadData,$http) {
 
-  	var url = '/files/blue-gum-bubble.json';
+  	var url = 'gumballs/blue-gum-bubble.json';
 
-  	loadData(url).success(function(data){
+  	$http.get(url).success(function(data){
   		console.log(data);
 
   	});

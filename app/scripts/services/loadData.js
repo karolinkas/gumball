@@ -5,11 +5,11 @@ angular.module('gumballApp')
     var promise = null;
     
     //checking for answer to request
-    return function(url) {
+    return function(url,data) {
       if (promise) {
         return promise;
       } else {
-        promise = $http.get(url);
+        promise = $http.post(url,data);
         return promise;
       }
     };
