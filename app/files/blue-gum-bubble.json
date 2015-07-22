@@ -1,0 +1,11 @@
+{
+  "data": {
+    "id": 12341,
+    "type": "gumball",
+    "attributes": {
+      "color": "Blue",
+      "flavor": "Bubble Gum",
+      "description": "Yummy, yummy, Bubble Gummy! You got a Bubble Gum flavored gumball, you lucky dog."
+    }
+  }
+}
