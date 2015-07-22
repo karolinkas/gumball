@@ -1,8 +1,14 @@
 <div class="jumbotron">
+	<p>Enter a valid emailadress that I don´t know yet and <br> I am going to give you a gumball.</p>
  <input type="email" ng-model="email"/>
- <input ng-click="sendData(email)" type="submit" value="Submit">
+ <input ng-click="sendData(email)" type="submit" value="Eat it!">
+ <h2 ng-model="angry">{{angry}}</h2>
+
 </div>
 
-<div class="row marketing">
+ <HelloComponent fname="person.fname" lname="person.lname" watch-depth="reference"></HelloComponent>
+<div id="bubblecontainer">
+ <h1 ng-repeat="ball in balls" >{{ball.data.attributes.color}}</h1>
  <p ng-repeat="ball in balls" >{{ball.data.attributes.flavor}}</p>
+ <p ng-repeat="ball in balls" >{{ball.data.attributes.description}}</p>
 </div>

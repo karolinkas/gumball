@@ -5,26 +5,31 @@ angular.module('gumballApp')
 
   	var url = '/gumballs';
 
+  	//emailadressses that I would get from a database, that exist already
   	var existingEmails = ["li-nee@gmx.de",'pipapo@gmx.de']; 
+
   	$scope.email = ""; 
   	$scope.balls = [];
-  	//color,flavour,description 
+  	$scope.angry = "";
+  	
+    $scope.person = { fname: 'Clark', lname: 'Kent' };
 
 
   	$scope.sendData = function(email){
 
-  		if(existingEmails.indexOf(email) === -1){
+  		if(existingEmails.indexOf(email) === -1 && email.length>=1 ){
 
+  			$scope.angry = "";
 	  		$http.post(url, email).success(function(dataReturn){
-	  			$scope.balls = dataReturn[0];
+	  			$scope.balls = dataReturn;
 	  			console.log($scope.balls);
 	  		}).error(function(){
 
 	  		});
 
   		} else {
-  			
-  			console.log("Liar! You exist twice.");
+  			$scope.angry = "Liar! I ate this already!"; 
+  			console.log("Liar! I ate this already!");
   		}
 
   	};

@@ -2,16 +2,12 @@
 
 angular
   .module('gumballApp', [
-    'ngAnimate', 'ngRoute', 'ngMockE2E'
+    'ngAnimate', 'ngRoute', 'ngMockE2E', 'react'
   ])
   .config(function ($routeProvider) {
      $routeProvider
        .when('/', {
          templateUrl: 'views/main.html',
-         controller: 'MainCtrl'
-       })
-       .when('/gumballs', {
-         templateUrl: 'files/blue-gum-bubble.json',
          controller: 'MainCtrl'
        })
        .otherwise({
@@ -42,8 +38,6 @@ angular
                   }
                 }];
 
-      // returns the current list of balls
-      $httpBackend.whenGET('/gumballs').respond(balls);
 
       // adds a new ball to the balls array
       $httpBackend.whenPOST('/gumballs').respond(balls);
