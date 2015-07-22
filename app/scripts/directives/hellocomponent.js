@@ -2,5 +2,5 @@
 
 angular.module('gumballApp')
   .directive('helloComponent', function (reactDirective) {
-    return reactDirective('HelloComponent');
+    return reactDirective('HelloComponent', ['fname', 'lname']);
   });
