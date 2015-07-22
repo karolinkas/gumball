@@ -1,7 +1,8 @@
-<div ng-click="sendData(email)" class="jumbotron">
- <input ng-model="email"/>
+<div class="jumbotron">
+ <input type="email" ng-model="email"/>
+ <input ng-click="sendData(email)" type="submit" value="Submit">
 </div>
 
 <div class="row marketing">
- 
+ <p ng-repeat="ball in balls" >{{ball.data.attributes.flavor}}</p>
 </div>

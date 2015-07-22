@@ -5,18 +5,28 @@ angular.module('gumballApp')
 
   	var url = '/gumballs';
 
+  	var existingEmails = ["li-nee@gmx.de",'pipapo@gmx.de']; 
+  	$scope.email = ""; 
+  	$scope.balls = [];
+  	//color,flavour,description 
 
-  	$scope.email = "heho"; 
 
+  	$scope.sendData = function(email){
 
-  	$http.get(url).success(function(data){
-  		console.log(data);
-  	});
+  		if(existingEmails.indexOf(email) === -1){
 
-  	$scope.sendData = function(message){
-  		$http.post(url, message).success(function(dataReturn){
-  			console.log(dataReturn);
-  		});
+	  		$http.post(url, email).success(function(dataReturn){
+	  			$scope.balls = dataReturn[0];
+	  			console.log($scope.balls);
+	  		}).error(function(){
+
+	  		});
+
+  		} else {
+  			
+  			console.log("Liar! You exist twice.");
+  		}
+
   	};
 
 
