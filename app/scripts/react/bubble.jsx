@@ -4,6 +4,7 @@ var randRadius = Math.floor(Math.random() * (100 - 0) + 0);
 var randPos = Math.floor(Math.random() * (500 - 0) + 0);
 var exampleUrl = "https://gist.githubusercontent.com/sixofhearts/615f4373988e62eb25c0/raw/a76b17359ea7c8aa46bcd4f6f759a8fca73a9497/bubble-gum-blue";
 var emailadressCount = 100;
+var newPos = function (){ Math.floor(Math.random() * (500 - 0) + 0)};
 
 var SVGbubble = React.createClass({
 
@@ -48,6 +49,8 @@ React.render(
     document.getElementById('bubblecontainer')
 );
 
-
+setInterval(
+						$("circle").velocity({ cx: 50, cy: 50 })
+						,400);
 
 
