@@ -11,10 +11,8 @@ angular.module('gumballApp')
   	$scope.email = ""; 
   	$scope.balls = [];
   	$scope.angry = "";
+    
   	
-    $scope.person = { fname: 'Clark', lname: 'Kent' };
-
-
   	$scope.sendData = function(email){
 
   		if(existingEmails.indexOf(email) === -1 && email.length>=1 ){
@@ -29,7 +27,6 @@ angular.module('gumballApp')
 
   		} else {
   			$scope.angry = "Liar! I ate this already!"; 
-  			console.log("Liar! I ate this already!");
   		}
 
   	};
