@@ -26,13 +26,10 @@ angular.module('gumballApp')
   			$scope.angry = "";
 	  		$http.post(url, email).success(function(dataReturn){
 	  			$scope.balls = dataReturn;
-          console.log(url);
-	  		}).error(function(){
-
 	  		});
 
   		} else {
-  			$scope.angry = "Liar! I ate this already!"; 
+  			$scope.angry = "Liar!"; 
   		}
 
   	};
