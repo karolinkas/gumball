@@ -42,6 +42,8 @@ angular
       // adds a new ball to the balls array
       $httpBackend.whenPOST('/gumballs').respond(balls);
 
+      $httpBackend.whenGET('/gumballs').respond(balls);
+
       $httpBackend.whenGET(/main/).passThrough();
 
 
