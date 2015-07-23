@@ -16,7 +16,7 @@ angular.module('gumballApp')
       existingEmails.push(email);
       return existingEmails;
     };
-  	
+
   	$scope.sendData = function(email){
 
       $scope.saveInput(email);
@@ -26,6 +26,7 @@ angular.module('gumballApp')
   			$scope.angry = "";
 	  		$http.post(url, email).success(function(dataReturn){
 	  			$scope.balls = dataReturn;
+          console.log(url);
 	  		}).error(function(){
 
 	  		});
