@@ -12,30 +12,33 @@ var SVGbubble = React.createClass({
 		},
 		componentDidMount: function() {
 			var self = this;
-		  $.get(this.props.source, function(result) {
-		  	var bubbleData = result;
-		  	// console.log(bubbleData);
-		  	// var type = bubbleData.data.attributes.flavor;
-		  	// var color = bubbleData.data.attributes.color;
-		  	// var description = bubbleData.data.attributes.description;
+		  $.getJSON(this.props.source, function(result) {
+		  	var bubbleData = result.data;
 
 		    if (this.isMounted()) {
-		      this.setState({
-		        data: bubbleData
-		      });
+		      this.setState(bubbleData);
 		    }
 		  }.bind(this));
 		},
 
     render: function() {
-        return <svg {...this.props}>{this.props.children}
-        					<svg viewBox="0 0 500 700">
- 										<circle cx={randPos} cy={randPos} r={randRadius} fill="tomato"/>
+    	var bubble = this.state;	
+    	console.log(bubble);
+      		return (
+              
+      					<svg {...this.props}>{this.props.children}
+	      					<svg viewBox="0 0 500 700">
+
+	      							<text x="250" y="150" fontFamily="Verdana" fontSize="55">{bubble.id}</text>
+											<circle cx={randPos} cy={randPos} r={randRadius} fill="tomato"/>
 									</svg>
-        					<svg viewBox="0 0 500 500">
- 										<circle cx={randPos} cy={randPos} r={randRadius} fill="blue"/>
-									</svg>
-								</svg>;
+	      		// 			<svg viewBox="0 0 500 500">
+	      		// 					<text x="250" y="150" fontFamily="Verdana" fontSize="55">{bubble}</text>
+									// 		<circle cx={randPos} cy={randPos} r={randRadius} fill="blue"/>
+									// </svg>
+								</svg>
+
+							);
     }
 });
 
