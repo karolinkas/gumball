@@ -19,14 +19,14 @@ angular.module('gumballApp')
 
   	$scope.sendData = function(email){
 
-      $scope.saveInput(email);
 
-  		if(existingEmails.indexOf(email) === -1 && email.length>=1 ){
+      if(existingEmails.indexOf(email) === -1 && email.length>=1 ){
 
-  			$scope.angry = "";
-	  		$http.post(url, email).success(function(dataReturn){
-	  			$scope.balls = dataReturn;
-	  		});
+        $scope.angry = "";
+        $http.post(url, email).success(function(dataReturn){
+          $scope.balls = dataReturn;
+        });
+        $scope.saveInput(email);
 
   		} else {
   			$scope.angry = "Liar!"; 
