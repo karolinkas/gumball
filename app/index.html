@@ -22,27 +22,13 @@
 
     <!-- Add your site or application content here -->
 
-        <div class="container" id="bubblecontainer"></div>
+    <div class="container" id="bubblecontainer"></div>
 
 
     <div class="container">
     <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
     </div>
 
-    <div class="footer">
-    </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -55,16 +41,14 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="bower_components/velocity/velocity.min.js"></script>
-    <script src="//cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js"></script>
+    <script src="bower_components/react/JSXTransformer.js"></script>
+   
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/services/loadData.js"></script>
-        <script src="scripts/directives/bubbledirective.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script>
         <script src="scripts/react/bubble.jsx" type="text/jsx"></script>
         <!-- endbuild -->
 </body>

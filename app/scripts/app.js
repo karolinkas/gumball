@@ -15,35 +15,36 @@ angular
        });
    })
   .run(function($httpBackend) {
-      var balls = [{
-                    "data": {
-                      "id": 12341,
-                      "type": "gumball",
-                      "attributes": {
-                        "color": "Blue",
-                        "flavor": "Bubble Gum",
-                        "description": "Yummy, yummy, Bubble Gummy! You got a Bubble Gum flavored gumball, you lucky dog."
-                      }
-                    }
-                  }, 
-                  {
+    //setting response for successfull request
+    var balls = [{
                   "data": {
-                    "id": 12342,
+                    "id": 12341,
                     "type": "gumball",
                     "attributes": {
-                      "color": "Red",
-                      "flavor": "Bitter Tomato",
-                      "description": "Oh boy - everyone's favorite refreshing treat has rolled out of the machine and into your lucky hand!"
+                      "color": "Blue",
+                      "flavor": "Bubble Gum",
+                      "description": "Yummy, yummy, Bubble Gummy! You got a Bubble Gum flavored gumball, you lucky dog."
                     }
                   }
-                }];
+                }, 
+                {
+                "data": {
+                  "id": 12342,
+                  "type": "gumball",
+                  "attributes": {
+                    "color": "Red",
+                    "flavor": "Bitter Tomato",
+                    "description": "Oh boy - everyone's favorite refreshing treat has rolled out of the machine and into your lucky hand!"
+                  }
+                }
+              }];
 
 
-      // adds a new ball to the balls array
+      //setting up backend mock
       $httpBackend.whenPOST('/gumballs').respond(balls);
 
-      $httpBackend.whenGET('/gumballs').respond(balls);
-
+      //getting a template is a request too, 
+      // so to prevent any errors it´s important to make sure the request to the template
       $httpBackend.whenGET(/main/).passThrough();
 
 

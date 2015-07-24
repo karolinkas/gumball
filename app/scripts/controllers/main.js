@@ -1,32 +1,43 @@
 'use strict';
 
 angular.module('gumballApp')
-  .controller('MainCtrl', [ 'loadData', '$http', '$scope', function (loadData,$http,$scope) {
+  .controller('MainCtrl', [ '$http', '$scope', function ($http,$scope) {
 
+    //setting url that has been created through backend mock
   	var url = '/gumballs';
 
-  	//emailadressses that I would get from a database, that exist already
+  	// example emailadresses that I would get from a database 
   	var existingEmails = ["li-nee@gmx.de",'pipapo@gmx.de']; 
 
-  	$scope.email = ""; 
-  	$scope.balls = [];
-  	$scope.angry = "";
+  	// model for email that will be defined by user
+    // intitialising array for postrequest response and errormessagetext   
+    $scope.email = "";
+    $scope.balls = [];
+    $scope.angry = "";
 
-    $scope.saveInput = function(email){
+    // add email to example emailadresses
+    function saveInput(email){
       existingEmails.push(email);
       return existingEmails;
-    };
+    }
 
+    // method that is called by clicking on submitbutton
   	$scope.sendData = function(email){
 
-
+      // checking if emailadress is in array (would also be done in the backend in real life)
+      // if it´s a valid emailadress here only with type="email" from HTML5
       if(existingEmails.indexOf(email) === -1 && email.length>=1 ){
 
+        //emptying error-message in case it´s still showing from a previous input
         $scope.angry = "";
-        $http.post(url, email).success(function(dataReturn){
-          $scope.balls = dataReturn;
+
+        // making post to mocked backend, passing email from userinput,
+        // if input is correct the response will be shown below the input tag 
+        // as simple p
+        $http.post(url, email).success(function(response){
+          $scope.balls = response;
         });
-        $scope.saveInput(email);
+        saveInput(email);
 
   		} else {
   			$scope.angry = "Liar!"; 
