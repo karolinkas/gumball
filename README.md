@@ -1,7 +1,8 @@
 # gumball
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+I built a component that draws svg bubbles with react using the json and did the basic setup with angular.
+
+
 
 ## Build & development
 
